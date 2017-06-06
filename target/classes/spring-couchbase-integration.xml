@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:couchbase="http://www.springframework.org/schema/data/couchbase"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+    http://www.springframework.org/schema/data/couchbase
+    http://www.springframework.org/schema/data/couchbase/spring-couchbase.xsd">
+
+	<couchbase:cluster>
+		<couchbase:node>192.168.0.12</couchbase:node>
+	</couchbase:cluster>
+
+	<!-- This is needed to probe the server for N1QL support -->
+	<!-- Can be either cluster credentials or a bucket credentials -->
+	<couchbase:clusterInfo login="abstractadmin"
+		password="abstract123" />
+
+	<beans:bean id="couchbaseEnv"
+		class="com.couchbase.client.java.env.DefaultCouchbaseEnvironment"
+		factory-method="create" />
+	<beans:bean id="myCustomTranslationService"
+		class="org.springframework.data.couchbase.core.convert.translation.JacksonTranslationService" />
+
+	<couchbase:indexManager />
+
+
+	<couchbase:repositories base-package="com.tao.wsa.repo" />
+
+	<couchbase:template translation-service-ref="myCustomTranslationService" />
+
+
+
+	<couchbase:bucket bucketName="default"/>
+	<!-- <couchbase:bucket bucketName="default"
+		bucketPassword="abstract123" /> -->
+</beans:beans>

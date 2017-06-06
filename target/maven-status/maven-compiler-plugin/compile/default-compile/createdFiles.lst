@@ -1,0 +1,6 @@
+com/tao/AppTest.class
+com/jcg/examples/entity/Book.class
+com/jcg/examples/ApplicationTest.class
+com/jcg/examples/repo/BookRepo.class
+com/tao/wsa/repo/RequestRepo.class
+com/tao/wsa/entity/Request.class
