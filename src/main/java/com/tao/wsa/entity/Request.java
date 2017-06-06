@@ -24,7 +24,18 @@ public class Request
 		@Field
 		private String taskerId;
 
-		
+		public Request() {}
+
+		public Request(long reqId, String reqState, String reqStatus, long calId, String taskerId) {
+			//super();
+			this.reqId = reqId;
+			this.reqState = reqState;
+			this.reqStatus = reqStatus;
+			this.calId = calId;
+			this.taskerId = taskerId;
+		}
+
+
 
 		public long getReqId() {
 			return reqId;
