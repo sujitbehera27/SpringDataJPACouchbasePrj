@@ -14,13 +14,16 @@ public class AppTest
 				ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(new ClassPathResource("spring-couchbase-integration.xml").getPath());
 				RequestRepo reqRepo = context.getBean(RequestRepo.class);
 				
+//				reqRepo.deleteAll();
 				
 				Request req = new Request();
-				req.setReqId(1);
+				
+				req.setReqId(100);
 				req.setCalId(11);
 				req.setTaskerId("sujitbehera27@gmail.com");
 				req.setReqState("waiting");
-				req.setReqState("inProgress");
+				req.setReqStatus("inProgress");
+				//req.getTasker().setNickName("sujit");
 				
 				reqRepo.save(req);
 				
@@ -29,7 +32,7 @@ public class AppTest
 				req1.setCalId(12);
 				req1.setTaskerId("sambitsahu@gmail.com");
 				req1.setReqState("accepted");
-				req1.setReqState("completed");
+				req1.setReqStatus("completed");
 				
 				reqRepo.save(req1);
 				

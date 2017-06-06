@@ -23,22 +23,75 @@ public class Request
 		
 		@Field
 		private String taskerId;
+		
+		@Field
+		private Tasker tasker;
+		
+		static class Tasker {
+			private long taskerId;
+	        private String nickName;
+	        private String phone;
+	        
+	       Tasker(long taskerId, String nickName, String phone) {
+				//super();
+				this.taskerId = taskerId;
+				this.nickName = nickName;
+				this.phone = phone;
+			}
 
-		public Request() {}
+			public long getTaskerId() {
+				return taskerId;
+			}
+	
+			public void setTaskerId(long taskerId) {
+				this.taskerId = taskerId;
+			}
+	
+			public String getNickName() {
+				return nickName;
+			}
+	
+			public void setNickName(String nickName) {
+				this.nickName = nickName;
+			}
+	
+			public String getPhone() {
+				return phone;
+			}
+	
+			public void setPhone(String phone) {
+				this.phone = phone;
+			}
 
-		public Request(long reqId, String reqState, String reqStatus, long calId, String taskerId) {
-			//super();
-			this.reqId = reqId;
-			this.reqState = reqState;
-			this.reqStatus = reqStatus;
-			this.calId = calId;
-			this.taskerId = taskerId;
-		}
+	    }
+
+//		public Request() {}
+//
+//		public Request(long reqId, String reqState, String reqStatus, long calId, String taskerId) {
+//			//super();
+//			this.reqId = reqId;
+//			this.reqState = reqState;
+//			this.reqStatus = reqStatus;
+//			this.calId = calId;
+//			this.taskerId = taskerId;
+//		}
 
 
 
 		public long getReqId() {
 			return reqId;
+		}
+
+
+
+		public Tasker getTasker() {
+			return tasker;
+		}
+
+
+
+		public void setTasker(Tasker tasker) {
+			this.tasker = tasker;
 		}
 
 
